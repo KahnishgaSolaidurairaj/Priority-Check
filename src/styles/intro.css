@@ -1,0 +1,40 @@
+
+.intro-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #ffc4c4;
+}
+
+.intro-card {
+  max-width: 750px;
+  background: white;
+  padding: 3rem;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.intro-card h1 {
+  font-size: 4rem;
+  color: #ff5353;
+}
+
+.intro-card h3 {
+  margin-bottom: 1.5rem;
+}
+
+.intro-card p {
+  margin: 1rem 0;
+  line-height: 1.7;
+}
+
+.intro-card button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 18px;
+  background: #ff8f8f;
+  font-size: 1rem;
+}

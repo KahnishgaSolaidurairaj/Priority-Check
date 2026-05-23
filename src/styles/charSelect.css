@@ -1,0 +1,52 @@
+
+.character-screen {
+  min-height: 100vh;
+  padding: 2rem;
+  background: #ffc4c4;
+}
+
+/*.character-screen h1 {
+  color: #ff5353;
+}*/
+
+.priority-hand {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.priority-card {
+  width: 140px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.priority-card:hover {
+  transform: translateY(-8px) scale(1.04);
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.character-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+}
+
+.character-card img {
+  width: 120px;
+  border-radius: 20px;
+}
