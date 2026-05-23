@@ -1,19 +1,17 @@
 # Priority-Check
 What matters most when life gets full
 
-# React + Vite
+## Health Access Lab at UIC
+This game was created by me (Kahnishga) and my team Amaani Ziauddin, Ian Aguilar, Sneha Sharma, Lavanya Vats and our team lead Kimberlee Wilkens for our workshop. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This workshop was created for UIC students to help us understand where do players stop in this path of registration, getting information, scheduling, and getting to the counseling / mental health service. We focused in on what students are prioritizing and the reasons behind it hence the name "Priority Check"!
 
-Currently, two official plugins are available:
+## Digital Version
+This digital version is just to allow other who werent able to attend our in-person workshop to try out our game. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+None of your data from this game play is shared with us or saved. Instead we have set up a digital reciept/ game summary in which you can download or screenshot for your reference and or if you wanted to share with your friends and family. 
 
-## React Compiler
+## Try it out 
+Here is a link to the deployed game website if you would like to try it out!
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Link: (Coming soon!)
