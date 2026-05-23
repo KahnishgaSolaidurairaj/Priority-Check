@@ -1,122 +1,111 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import './styles/app.css';
 
+import IntroScreen from './components/IntroScreen';
+import CharacterSelect from './components/CharacterSelect';
+import GameBoard from './components/GameBoard';
+import EndingQuestions from './components/EndingQuestions';
+import ReceiptScreen from './components/ReceiptScreen';
+
+import { hurdles } from './data/gameData';
+import { shuffleArray, getRandomConsequence } from './utils/helpers';
+
+const ALL_PRIORITIES = ['AC', 'AP', 'FI', 'PH', 'SO'];
 function App() {
-  const [count, setCount] = useState(0)
+  const [screen, setScreen] = useState('intro');
+  const [character, setCharacter] = useState(null);
+  const [priorities, setPriorities] =
+useState(shuffleArray([...ALL_PRIORITIES]));
+  const [currentHurdle, setCurrentHurdle] = useState(0);
+  const [receipt, setReceipt] = useState([]);
+  const [bailed, setBailed] = useState(false);
+  const [endingAnswers, setEndingAnswers] = useState({});
+  
+  const handleCharacterSelect = (piece) => {
+    setCharacter(piece);
+    setScreen('game');
+  };
+
+  const handleDecision = ({ priority, accepted, commentary }) => {
+    const consequence = getRandomConsequence(priority);
+
+    const entry = {
+      hurdle: hurdles[currentHurdle],
+      priority,
+      consequence,
+      accepted,
+      commentary,
+    };
+
+    setReceipt((prev) => [...prev, entry]);
+
+    const updated = priorities.filter((p) => p !== priority);
+    setPriorities(updated);
+    if (!accepted) {
+      setBailed(true);
+      setScreen('ending');
+      return;
+    }
+
+    if (currentHurdle === hurdles.length - 1) {
+      setScreen('ending');
+    } else {
+      setCurrentHurdle((prev) => prev + 1);
+    }
+  };
+
+  const handleEndingSubmit = (answers) => {
+    setEndingAnswers(answers);
+    setScreen('receipt');
+  };
+
+  const resetGame = () => {
+    setScreen('intro');
+    setCharacter(null);
+    setPriorities(shuffleArray([...ALL_PRIORITIES]));
+    setCurrentHurdle(0);
+    setReceipt([]);
+    setBailed(false);
+    setEndingAnswers({});
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app-shell">
+      {screen === 'intro' && (
+        <IntroScreen onStart={() => setScreen('character')} />
+      )}
 
-      <div className="ticks"></div>
+      {screen === 'character' && (
+        <CharacterSelect onSelect={handleCharacterSelect} />
+      )}
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {screen === 'game' && (
+        <GameBoard
+          hurdle={hurdles[currentHurdle]}
+          character={character}
+          priorities={priorities}
+          onDecision={handleDecision}
+          hurdleIndex={currentHurdle}
+        />
+      )}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {screen === 'ending' && (
+        <EndingQuestions
+          bailed={bailed}
+          onSubmit={handleEndingSubmit}
+        />
+      )}
+
+      {screen === 'receipt' && (
+        <ReceiptScreen
+          receipt={receipt}
+          endingAnswers={endingAnswers}
+          bailed={bailed}
+          onReplay={resetGame}
+        />
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
