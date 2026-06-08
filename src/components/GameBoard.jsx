@@ -1,52 +1,80 @@
-import { useState } from 'react';
-import PriorityHand from './PriorityHand';
-import ConsequenceModal from './ConsequenceModal';
-import QuestionModal from './QuestionModal';
-import ProgressTracker from './ProgressTracker';
-import '../styles/board.css';
+import { useState } from "react";
+
+import PriorityHand from "./PriorityHand";
+import ConsequenceModal from "./ConsequenceModal";
+import ProgressTracker from "./ProgressTracker";
+
+import "../styles/board.css";
 
 function GameBoard({
-    hurdle,
-    character,
-    priorities,
-    onDecision,
-    hurdleIndex,
+  hurdle,
+  character,
+  priorities,
+  onDecision,
+  hurdleIndex,
 }) {
-    const [selectedPriority, setSelectedPriority] = useState(null);
-    const [showConsequence, setShowConsequence] = useState(false);
+  const [selectedPriority, setSelectedPriority] = useState(null);
+  const [showConsequenceModal, setShowConsequenceModal] =
+    useState(false);
 
-    return (
-        <div className="board-screen fade-in">
-            <div className="board-overlay">
-                <ProgressTracker current={hurdleIndex} />
-                <div className="hurdle-box"></div>
-                <h2>{hurdle.title}</h2>
-                <p>{hurdle.text}</p>
+  const handlePrioritySelect = (priority) => {
+    setSelectedPriority(priority);
+    setShowConsequenceModal(true);
+  };
 
-                <p className="warning-text"> To get something in this game, you must give something.</p>
-            </div>
-            <div className="player-section">
-                <img className="player-piece" src={character} alt="character" />
-            </div>
+  const handleCloseModal = () => {
+    setShowConsequenceModal(false);
+    setSelectedPriority(null);
+  };
 
-            <PriorityHand
-                priorities={priorities}
-                onSelect={(priority) => {
-                    setSelectedPriority(priority);
-                    setShowConsequence(true);
-                }}
-            />
-        
+  const handleDecisionComplete = (decision) => {
+    onDecision(decision);
 
-            {showConsequence && (
-                <ConsequenceModal
-                    priority={selectedPriority}
-                    onContinue={() => setShowConsequence(false)}
-                    onSubmit={onDecision}
-                />
-            )}
+    // reset modal state
+    setShowConsequenceModal(false);
+    setSelectedPriority(null);
+  };
+
+  return (
+    <div className="board-screen fade-in">
+      <div className="board-overlay">
+
+        <ProgressTracker current={hurdleIndex} />
+
+        <div className="hurdle-box">
+          <h2>{hurdle.title}</h2>
+
+          <p>{hurdle.text}</p>
+
+          <p className="warning-text">
+            To get something in this game,
+            you must give something.
+          </p>
         </div>
-    );
+      </div>
+
+      <div className="player-section">
+        <img
+          className="player-piece"
+          src={character}
+          alt="player"
+        />
+      </div>
+
+      <PriorityHand
+        priorities={priorities}
+        onSelect={handlePrioritySelect}
+      />
+
+      {showConsequenceModal && selectedPriority && (
+        <ConsequenceModal
+          priority={selectedPriority}
+          onClose={handleCloseModal}
+          onSubmit={handleDecisionComplete}
+        />
+      )}
+    </div>
+  );
 }
 
 export default GameBoard;
