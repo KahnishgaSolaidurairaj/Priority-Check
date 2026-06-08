@@ -17,7 +17,7 @@ function ReceiptScreen({
 
             <div className="receipt-images">
               <img
-                src={`/priorityCards/${item.priority}.png`}
+                src={`./priorityCards/${item.priority}.png`}
                 alt="priority"
               />
               <img src={item.consequence} alt="consequence" />
