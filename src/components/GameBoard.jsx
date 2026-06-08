@@ -7,15 +7,14 @@ import ProgressTracker from "./ProgressTracker";
 import "../styles/board.css";
 
 function GameBoard({
-  hurdle,
-  character,
-  priorities,
-  onDecision,
-  hurdleIndex,
+    hurdle,
+    character,
+    priorities,
+    onDecision,
+    hurdleIndex,
 }) {
-  const [selectedPriority, setSelectedPriority] = useState(null);
-  const [showConsequenceModal, setShowConsequenceModal] =
-    useState(false);
+    const [selectedPriority, setSelectedPriority] = useState(null);
+    const [showConsequenceModal, setShowConsequenceModal] = useState(false);
 
   const handlePrioritySelect = (priority) => {
     setSelectedPriority(priority);

@@ -1,12 +1,12 @@
 .priority-hand {
   display: flex;
   gap: 1rem;
-  margin-top: 3rem;
+  margin: 2rem;
   flex-wrap: wrap;
 }
 
 .priority-card {
-  width: 140px;
+  width: 160px;
   border-radius: 20px;
   cursor: pointer;
   transition: 0.25s ease;

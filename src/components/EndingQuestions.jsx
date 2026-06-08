@@ -19,7 +19,7 @@ function EndingQuestions({ bailed, onSubmit }) {
         <textarea
           placeholder={
             bailed
-              ? 'Why did you decide to stop?'
+              ? 'Why did you decide to hit the emergency exit button?'
               : 'Where were you considering pressing the bail button?'
           }
           onChange={(e) =>
