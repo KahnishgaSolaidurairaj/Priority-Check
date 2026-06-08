@@ -5,7 +5,7 @@ function PriorityHand({ priorities, onSelect }) {
             {priorities.map((card) => (
             <img
                 key={card}
-                src={`./priorityCards/${card}.png`}
+                src={`${import.meta.env.BASE_URL}priorityCards/${card}.png`}
                 alt={card}
                 className="priority-card"
                 onClick={() => onSelect(card)}

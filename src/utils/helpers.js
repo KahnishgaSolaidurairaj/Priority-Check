@@ -10,7 +10,7 @@ export const getRandomCharacterSet = () => {
     sets[Math.floor(Math.random() * sets.length)];
 
   const characters = letters.map(
-    (letter) => `./players/${randomSet}${letter}.png`
+    (letter) => `${import.meta.env.BASE_URL}players/${randomSet}${letter}.png`
   );
 
   return shuffleArray(characters);
@@ -20,13 +20,13 @@ export const getRandomConsequence = (priority) => {
   const randomNum =
     Math.floor(Math.random() * 3) + 1;
 
-  return `./consequenceCards/${priority}${randomNum}.png`;
+  return `${import.meta.env.BASE_URL}consequenceCards/${priority}${randomNum}.png`;
 };
 
 export const getConsequenceOptions = (priority) => {
   return [
-    `./consequenceCards/${priority}1.png`,
-    `./consequenceCards/${priority}2.png`,
-    `./consequenceCards/${priority}3.png`,
+    `${import.meta.env.BASE_URL}consequenceCards/${priority}1.png`,
+    `${import.meta.env.BASE_URL}consequenceCards/${priority}2.png`,
+    `${import.meta.env.BASE_URL}consequenceCards/${priority}3.png`,
   ];
 };
