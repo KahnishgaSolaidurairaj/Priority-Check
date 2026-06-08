@@ -7,6 +7,7 @@
 
 .priority-card {
   width: 140px;
+  border-radius: 20px;
   cursor: pointer;
   transition: 0.25s ease;
 }

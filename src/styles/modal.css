@@ -18,12 +18,30 @@
   text-align: center;
 }
 
+.consequence-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
 .flip-card {
+  width: 180px;
+  height: 260px;
+  transition: all 0.25s ease;
+}
+
+.flip-card.selected {
+  width: 240px;
+  height: 340px;
+}
+
+/* .flip-card {
   width: 220px;
   height: 320px;
   margin: 2rem auto;
   cursor: pointer;
-}
+} */
 
 .flip-card img, .card-back {
   width: 100%;

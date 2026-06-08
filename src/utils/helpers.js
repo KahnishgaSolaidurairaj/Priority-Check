@@ -1,4 +1,3 @@
-
 export const shuffleArray = (array) => {
     return [...array].sort(() => Math.random() - 0.5);
 };
@@ -18,4 +17,12 @@ export const getRandomCharacterSet = () => {
 export const getRandomConsequence = (priority) => {
     const randomNum = Math.floor(Math.random() * 3) + 1;
     return `/consequenceCards/${priority}${randomNum}.png`;
+};
+
+export const getConsequenceOptions = (priority) => {
+    return [
+        `/consequenceCards/${priority}1.png`,
+        `/consequenceCards/${priority}2.png`,
+        `/consequenceCards/${priority}3.png`,
+    ];
 };
