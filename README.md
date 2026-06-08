@@ -14,4 +14,4 @@ None of your data from this game play is shared with us or saved. Instead we hav
 ## Try it out 
 Here is a link to the deployed game website if you would like to try it out!
 
-Link: (Coming soon!)
+Link: https://kahnishgasolaidurairaj.github.io/Priority-Check/ 
