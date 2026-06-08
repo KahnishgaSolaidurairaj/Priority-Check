@@ -1,12 +1,33 @@
-.priority-hand {
+/*.priority-hand {
   display: flex;
   gap: 1rem;
   margin: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .priority-card {
-  width: 160px;
+  flex: 1 1 180px;
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}*/
+
+.priority-hand {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  padding-top: 0rem;
+}
+
+.priority-card {
+  width: 100%;
+  max-width: 250px;
+  justify-self: center;
   border-radius: 20px;
   cursor: pointer;
   transition: 0.25s ease;

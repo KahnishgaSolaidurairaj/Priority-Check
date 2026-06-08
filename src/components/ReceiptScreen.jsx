@@ -32,8 +32,9 @@ function ReceiptScreen({
 
         <div className="final-section">
           <h2>Final Reflection</h2>
+          <h3>Emergency exit response</h3>
           <p>{endingAnswers.reflection}</p>
-          <h2>UIC Mental Health Support Response</h2>
+          <h3>Do you have experience with Mental Health support at UIC?</h3>
           <p>{endingAnswers.support}</p>
         </div>
 

@@ -20,7 +20,7 @@ function EndingQuestions({ bailed, onSubmit }) {
           placeholder={
             bailed
               ? 'Why did you decide to hit the emergency exit button?'
-              : 'Where were you considering pressing the bail button?'
+              : 'Where were you considering pressing the emergency exit button?'
           }
           onChange={(e) =>
             setAnswers({ ...answers, reflection: e.target.value })
@@ -28,7 +28,7 @@ function EndingQuestions({ bailed, onSubmit }) {
         />
 
         <textarea
-          placeholder="Do you have experience with MH support at UIC?"
+          placeholder="Do you have experience with Mental Health support at UIC?"
           onChange={(e) =>
             setAnswers({ ...answers, support: e.target.value })
           }

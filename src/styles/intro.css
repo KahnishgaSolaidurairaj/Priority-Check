@@ -20,6 +20,7 @@
 .intro-card h1 {
   font-size: 4rem;
   color: #ff5353;
+  margin-bottom: 1rem;
 }
 
 .intro-card h3 {
@@ -38,4 +39,8 @@
   background: #ff8f8f;
   font-size: 1rem;
   font-weight: 600;
+}
+
+.intro-card button:hover {
+  transform: translateY(-8px) scale(1.04);
 }

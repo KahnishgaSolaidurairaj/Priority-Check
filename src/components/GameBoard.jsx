@@ -42,13 +42,8 @@ function GameBoard({
 
         <div className="hurdle-box">
           <h2>{hurdle.title}</h2>
-
           <p>{hurdle.text}</p>
-
-          <p className="warning-text">
-            To get something in this game,
-            you must give something.
-          </p>
+          <p className="warning-text"> To get something in this game, you must give something.</p>
         </div>
       </div>
 

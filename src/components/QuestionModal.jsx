@@ -23,11 +23,8 @@ function QuestionModal({
     <div className="modal-overlay">
       <div className="modal-card fade-in">
 
-        <h2>
-          Is this acceptable in pursuit of
-          mental health?
-        </h2>
-
+        <h2> Are you willing to accept this consequence in pursuit of mental health?</h2>
+        
         <div className="decision-buttons">
 
           <button
