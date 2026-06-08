@@ -33,7 +33,7 @@ function ReceiptScreen({
         <div className="final-section">
           <h2>Final Reflection</h2>
           <p>{endingAnswers.reflection}</p>
-          <h2>UIC Mental Health Support</h2>
+          <h2>UIC Mental Health Support Response</h2>
           <p>{endingAnswers.support}</p>
         </div>
 
