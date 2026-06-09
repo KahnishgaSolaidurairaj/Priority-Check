@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./styles/app.css";
 
 import IntroScreen from "./components/IntroScreen";
+import InstructionScreen from "./components/InstructionScreen";
 import CharacterSelect from "./components/CharacterSelect";
 import GameBoard from "./components/GameBoard";
 import EndingQuestions from "./components/EndingQuestions";
@@ -99,6 +100,14 @@ function App() {
       {screen === "intro" && (
         <IntroScreen
           onStart={() =>
+            setScreen("instructions")
+          }
+        />
+      )}
+
+      {screen === "instructions" && (
+        <InstructionScreen
+          onContinue={() =>
             setScreen("character")
           }
         />

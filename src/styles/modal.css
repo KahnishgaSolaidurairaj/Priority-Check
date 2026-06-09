@@ -107,11 +107,12 @@
 }
 
 .choice-button.active {
-  background: #ff5d7a;
+  background: #ff5353;
   color: white;
 }
 
 .bail-button {
-  background: #ff5d7a;
+  margin-top: 1rem;
+  background: #ff5353;
   color: white;
 }
