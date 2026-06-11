@@ -30,6 +30,7 @@
 
 .secondary-button {
   background: #dddddd;
+  color: black;
 }
 
 .modal-buttons {
@@ -77,6 +78,7 @@
 .decision-buttons {
   display: flex;
   justify-content: center;
+  color: black;
   gap: 1rem;
   margin: 1.5rem 0;
 }
@@ -89,6 +91,7 @@
   font-weight: 600;
   transition: all 0.2s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  color: black;
 }
 
 .decision-buttons button:hover {
