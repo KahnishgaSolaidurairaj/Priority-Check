@@ -21,6 +21,10 @@
   max-width: 700px;
 }
 
+.hurdle-box h2 {
+  padding-bottom: 0.6rem;
+}
+
 .warning-text {
   margin-top: 1rem;
   color: #ff5d7a;

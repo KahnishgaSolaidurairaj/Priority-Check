@@ -43,5 +43,5 @@
 
 .intro-card button:hover {
   transform: translateY(-8px) scale(1.04);
-  background: #ff5353;
+  /* background: #ff5353; */
 }
